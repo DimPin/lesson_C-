@@ -51,13 +51,29 @@
 принимает число и выдаёт, является ли 
 число чётным (делится ли оно на два без остатка). */
 
+// Console.Write("Input number: ");
+// int num = Convert.ToInt32(Console.ReadLine());
+// if (num % 2 == 0)
+// {
+//     Console.WriteLine($"{num} is even");
+// }
+// else
+// {
+//     Console.WriteLine($"{num} is not even");
+// }
+
+/* Задача 4 Напишите программу, которая на 
+вход принимает число (N), а на выходе показывает 
+все чётные числа от 1 до N. */
+
 Console.Write("Input number: ");
-int num = Convert.ToInt32(Console.ReadLine());
-if (num % 2 == 0)
+int n = Convert.ToInt32(Console.ReadLine());
+int i = 1;
+while (i <= n)
 {
-    Console.WriteLine($"{num} is even");
-}
-else
-{
-    Console.WriteLine($"{num} is not even");
+    if (i % 2 == 0)
+    {
+        Console.WriteLine(i);
+    }
+    i++;
 }
