@@ -14,7 +14,7 @@ Console.WriteLine($"Second number {number} is {SecondNumber(number)}");
 /* Задача 2 Напишите программу, которая выводит третью цифру заданного числа или сообщает, 
 что третьей цифры нет. */
 
-int thirdNumber(int num)
+int ThirdNumber(int num)
 {
     int res = -1;
     string strNum = Convert.ToString(num);
@@ -44,7 +44,7 @@ int thirdNumber(int num)
 
 Console.Write("Input number: ");
 int num = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine($"Third number {number} is {thirdNumber(number)}");
+Console.WriteLine($"Third number {number} is {ThirdNumber(number)}");
 
 /* Задача 3 Напишите программу, которая принимает на вход цифру, обозначающую день недели, 
 и проверяет, является ли этот день выходным. */
