@@ -42,20 +42,20 @@ void ChangeArray(int[,] array)
     }
 }
 
-// Console.Write("Input rows: ");
-// int r = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Input columns: ");
-// int c = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Input min value: ");
-// int min = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Input max value: ");
-// int max = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input rows: ");
+int r = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input columns: ");
+int c = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input min value: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input max value: ");
+int max = Convert.ToInt32(Console.ReadLine());
 
-// int[,] arrayIntRandom = CreateIntArray(r, c, min, max);
-// ShowIntArray(arrayIntRandom);
+int[,] arrayIntRandom = CreateIntArray(r, c, min, max);
+ShowIntArray(arrayIntRandom);
 
-// ChangeArray(arrayIntRandom);
-// ShowIntArray(arrayIntRandom);
+ChangeArray(arrayIntRandom);
+ShowIntArray(arrayIntRandom);
 
 /* Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с 
 наименьшей суммой элементов. */
@@ -87,14 +87,14 @@ int SearchMaxSum(int[,] array)
     return rowIndex;
 }
 
-// Console.WriteLine($"Max sum row index is: {SearchMaxSum(arrayIntRandom)}");
+Console.WriteLine($"Max sum row index is: {SearchMaxSum(arrayIntRandom)}");
 
 /* Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц. */
 
 int[,] matrix1 = CreateIntArray(2, 2, 1, 10);
 int[,] matrix2 = CreateIntArray(2, 2, 1, 10);
-// ShowIntArray(matrix1);
-// ShowIntArray(matrix2);
+ShowIntArray(matrix1);
+ShowIntArray(matrix2);
 
 int[,] MultiMatrix(int[,] array1, int[,] array2)
 {
@@ -108,7 +108,7 @@ int[,] MultiMatrix(int[,] array1, int[,] array2)
     return arrayMulti;
 }
 
-// ShowIntArray(MultiMatrix(matrix1, matrix2));
+ShowIntArray(MultiMatrix(matrix1, matrix2));
 
 /* Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая 
 будет построчно выводить массив, добавляя индексы каждого элемента.
@@ -149,8 +149,80 @@ void ShowArray3d(int[,,] array)
     }
 }
 
-// ShowArray3d(CreateArray3d());
+ShowArray3d(CreateArray3d());
 
 /* Напишите программу, которая заполнит спирально массив 4 на 4. */
 
-int[,] arrayFourFour = new int[4, 4];
+int[,] SpiralArray()
+{
+    int rows = 4;
+    int columns = 4;
+
+    int count = 1;
+
+    int[,] array = new int[rows, columns];
+
+    for (int y = 0; y < columns; y++)
+    {
+        array[0, y] = count;
+        count++;
+    }
+    for (int x = 1; x < rows; x++)
+    {
+        array[x, columns - 1] = count;
+        count++;
+    }
+    for (int y = columns - 2; y >= 0; y--)
+    {
+        array[rows - 1, y] = count;
+        count++;
+    }
+    for (int x = rows - 2; x > 0; x--)
+    {
+        array[x, 0] = count;
+        count++;
+    }
+
+    int c = 1;
+    int d = 1;
+
+    while (count < rows * columns)
+    {
+        while (array[c, d + 1] == 0)
+        {
+            array[c, d] = count;
+            count++;
+            d++;
+        }
+
+        while (array[c + 1, d] == 0)
+        {
+            array[c, d] = count;
+            count++;
+            c++;
+        }
+
+        while (array[c, d - 1] == 0)
+        {
+            array[c, d] = count;
+            count++;
+            d--;
+        }
+
+        while (array[c - 1, d] == 0)
+        {
+            array[c, d] = count;
+            count++;
+            c--;
+        }
+    }
+
+    for (int x = 0; x < rows; x++)
+        for (int y = 0; y < columns; y++)
+            if (array[x, y] == 0)
+                array[x, y] = count;
+
+    return array;
+}
+
+ShowIntArray(SpiralArray());
